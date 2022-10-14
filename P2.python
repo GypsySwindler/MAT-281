@@ -1,0 +1,48 @@
+### Programa ###
+
+#Base#
+
+Datos = []
+
+Direccion = r'C:\Users\nico_\Desktop\APLICA\T1\tae.data'
+
+with open(Direccion, 'r') as Input:
+    texto = (Input.read())
+    texto = texto.split("\n")
+    
+    for i in texto:
+        if len(i)>5:
+            i = i.split(",")
+            un_dato = []
+            for j in i:
+                un_dato.append(j)
+            Datos.append(un_dato)
+#print(Datos)
+####################################################################################################
+
+
+
+### Pregunta 2.a ###
+    
+Cantidad_1s = 0
+Cantidad_2s = 0
+Cantidad_3s = 0
+    
+for i in Datos:
+    tipo = i[5]
+
+    if (tipo == "1"):
+        Cantidad_1s +=1
+
+    elif (tipo == "2"):
+        Cantidad_2s +=1
+
+    elif (tipo == "3"):
+        Cantidad_3s +=1
+
+Total = Cantidad_1s + Cantidad_2s + Cantidad_3s
+
+print("Hay "+str(Cantidad_1s)+" datos registrados como \"Low\"")
+print("Hay "+str(Cantidad_2s)+" datos registrados como \"Medium\"")
+print("Hay "+str(Cantidad_3s)+" datos registrados como \"High\"")
+print("Hay "+str(Total)+" datos en total")
